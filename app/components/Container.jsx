@@ -4,7 +4,7 @@
 
 var React   = require('react');
 var styles  = require('../styles/index.js');
-var Nav     = require('Nav')
+import Nav from 'Nav';
 
 var Container = React.createClass({
 

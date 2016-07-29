@@ -1,8 +1,10 @@
 /*
  * Main Todo App Component holds Todo Search, Todo List,Todo Filter
  */
-var React       = require('react');
 
+import React from 'react';
+import * as Redux from 'react-redux';
+import * as actions from 'actions';
 // Container
 var Container   = require('Container');
 
@@ -11,7 +13,7 @@ import TodoList from 'TodoList';
 import AddTodo  from 'AddTodo';
 import TodoSearch from 'TodoSearch';
 
-var Todo = React.createClass({
+export var Todo = React.createClass({
   render: function() {
     return(
       <Container>
@@ -26,4 +28,4 @@ var Todo = React.createClass({
   }
 });
 
-module.exports = Todo;
+export default Redux.connect()(Todo);

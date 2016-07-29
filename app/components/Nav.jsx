@@ -1,25 +1,33 @@
 /*
  * Nav Component
  */
-var React             = require('react');
 var styles            = require('../styles/index');
 var {Link, IndexLink} = require('react-router');
+import React from 'react';
+import * as Redux from 'react-redux';
+import * as actions from 'actions';
 
 // Using Arrow Function Notation (Stateless Components)
-var Nav = (props) => {
-  return(
-    <nav className="navbar navbar-inverse navbar-fixed-top">
-      <div className="container">
-        <div className="navbar-header">
-          <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar"></span>
-          </button>
-          <a className="navbar-brand" href="#">Todo App</a>
+export var Nav = React.createClass({
+  onLogout : function(e) {
+    e.preventDefault();
+    var {dispatch} = this.props;
+    dispatch(actions.startLogout());
+  },
+  render:function(){
+    return(
+      <nav className="navbar navbar-inverse navbar-fixed-top">
+        <div className="container">
+          <div className="navbar-header">
+            <a className="navbar-brand" href="#">Todo App</a>
+          </div>
+          <div className="navbar-form navbar-right">
+            <a href="#" onClick={this.onLogout} className="btn btn-danger">Logout</a>
+          </div>
         </div>
-      </div>
-    </nav>
-  )
-}
+      </nav>
+    )
+  }
+})
 
-module.exports = Nav;
+export default Redux.connect()(Nav);

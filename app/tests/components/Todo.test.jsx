@@ -11,7 +11,7 @@ var $         = require('jquery');
 var uuid      = require('node-uuid');
 var {Provider}= require('react-redux');
 var configureStore = require('configureStore');
-var Todo      = require('Todo');
+import {Todo} from 'Todo';
 import TodoList from 'TodoList'
 
 describe('Todo', () => {

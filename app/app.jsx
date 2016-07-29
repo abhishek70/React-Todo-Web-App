@@ -7,11 +7,24 @@ var actions     = require('actions');
 var store       = require('configureStore').configure();
 var {Provider}  = require('react-redux');
 
-// Components
-var Todo        = require('Todo');
 
-// API for fetching and setting todoList in LocalStorage
-var TodoAPI     = require('TodoAPI');
+// Object Destructering
+var {hashHistory} = require('react-router');
+
+import firebase from 'app/firebase/';
+import router from 'app/router/'
+
+firebase.auth().onAuthStateChanged( (user) => {
+  console.log('User', user);
+  if(user) {
+    hashHistory.push('/todos');
+  } else {
+    hashHistory.push('/');
+  }
+});
+
+
+
 
 // Fetching todos from the firebase
 store.dispatch(actions.startAddTodos());
@@ -19,7 +32,7 @@ store.dispatch(actions.startAddTodos());
 // Render DOM
 ReactDOM.render(
   <Provider store={store}>
-    <Todo/>
+    {router}
   </Provider>,
   document.getElementById('app')
 );
