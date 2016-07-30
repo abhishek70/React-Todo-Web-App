@@ -21,6 +21,9 @@ firebase.auth().onAuthStateChanged( (user) => {
 
     store.dispatch(actions.login(user.uid));
 
+    // Fetching todos for the loggged in users from the firebase
+    store.dispatch(actions.startAddTodos());
+
     hashHistory.push('/todos');
 
   } else {
@@ -33,8 +36,7 @@ firebase.auth().onAuthStateChanged( (user) => {
 
 
 
-// Fetching todos from the firebase
-store.dispatch(actions.startAddTodos());
+
 
 // Render DOM
 ReactDOM.render(
