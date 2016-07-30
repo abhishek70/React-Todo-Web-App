@@ -31,23 +31,6 @@ describe('Actions', () => {
     expect(res).toEqual(action);
   });
 
-  /*it('should create todo and dispatch ADD_TODO', (done) => {
-    // creating mock store
-    const store     = createMockStore({});
-    const todoText = 'My todo item';
-
-    store.dispatch(actions.startAddTodo(todoText)).then(() => {
-      const actions = store.getActions();
-      expect(actions[0]).toInclude({
-          type: 'ADD_TODO'
-      });
-      expect(actions[0].todo).toInclude({
-          text: todoText
-      });
-      done();
-    }).catch(done);
-  });*/
-
   it('shoule add todolist to local storage', () => {
     var todos = [{
       id : '11111',
@@ -84,6 +67,27 @@ describe('Actions', () => {
 
     var res = actions.updateTodo(action.id, action.updates);
     expect(res.id).toEqual(action.id);
+  });
+
+  it('should generate login action', () => {
+    const action = {
+      type : 'LOGIN',
+      uid  : 'test1234'
+    };
+
+    const res = actions.login(action.uid);
+
+    expect(res).toEqual(action);
+  });
+
+  it('should generate logout action', () => {
+    const action = {
+      type : 'LOGOUT'
+    };
+
+    const res = actions.logout();
+
+    expect(res).toEqual(action);
   });
 
   describe('Tests with firebase todos', () => {

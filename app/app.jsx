@@ -15,14 +15,21 @@ import firebase from 'app/firebase/';
 import router from 'app/router/'
 
 firebase.auth().onAuthStateChanged( (user) => {
+
   console.log('User', user);
   if(user) {
+
+    store.dispatch(actions.login(user.uid));
+
     hashHistory.push('/todos');
+
   } else {
+
+    store.dispatch(actions.logout());
     hashHistory.push('/');
+
   }
 });
-
 
 
 
