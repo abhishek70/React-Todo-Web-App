@@ -1,3 +1,10 @@
+/**
+ *
+ * Reducers
+ * searchTextReducers, showCompletedReducers, todosReducers, authReducers
+ */
+
+
 // Utility
 var uuid    = require('node-uuid');
 var moment  = require('moment');
@@ -66,7 +73,8 @@ export var todosReducers = (state=[], action) => {
   };
 };
 
-
+// Authentication Reducers
+// -----------------------------
 export var authReducers = (state = {}, action) => {
 
   switch (action.type) {

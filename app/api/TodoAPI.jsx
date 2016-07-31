@@ -1,15 +1,17 @@
-/*
- * Setting and Fetching TodoList from LocalStorage
+/**
+ *
+ * Filtering TodoList Module
  */
+
 module.exports = {
-  
+
   // Filtering TodoList based on Show Completed Checkbox and Search Text
   searchTodoList : function(todoList, showCompletedTodos, todoSearchText) {
     var filteredTodoList = todoList;
 
     // Filter by showCompletedTodos
-    filteredTodoList = filteredTodoList.filter((todoItem) => {
-      return !todoItem.completed || showCompletedTodos;
+    filteredTodoList = filteredTodoList.filter((todo) => {
+      return (todo.completed === showCompletedTodos);
     });
 
     // Filter by todoSearchText

@@ -1,13 +1,17 @@
-/*
+/**
+ *
  * The Container for holding the content
  */
 
-var React   = require('react');
 var styles  = require('../styles/index.js');
-import Nav from 'Nav';
+
+import React from 'react';
+import Nav   from 'Nav';
+
 
 var Container = React.createClass({
 
+  // Rending component
   render:function(){
     return(
       <div>
@@ -18,8 +22,7 @@ var Container = React.createClass({
           </div>
         </div>
       </div>
-
-    )
+    );
   }
 });
 

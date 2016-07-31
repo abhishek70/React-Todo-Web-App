@@ -1,16 +1,17 @@
-/*
+/**
+ *
  * Test cases for the Todo Container
  */
 
-var React     = require('react');
-var ReactDOM  = require('react-dom');
-var expect    = require('expect');
-var TestUtils = require('react-addons-test-utils');
-var $         = require('jquery');
-
-var uuid      = require('node-uuid');
-var {Provider}= require('react-redux');
+var React          = require('react');
+var ReactDOM       = require('react-dom');
+var expect         = require('expect');
+var TestUtils      = require('react-addons-test-utils');
+var $              = require('jquery');
+var uuid           = require('node-uuid');
+var {Provider}     = require('react-redux');
 var configureStore = require('configureStore');
+
 import {Todo} from 'Todo';
 import TodoList from 'TodoList'
 

@@ -1,10 +1,13 @@
-/*
+/**
+ *
  * Root Component
  */
 
-var React   = require('react');
-var Nav     = require('Nav');
 var styles  = require('../styles/index');
+
+import React from 'react';
+import Nav   from 'Nav';
+
 
 var Main = (props) => {
   return(

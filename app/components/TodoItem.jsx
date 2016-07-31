@@ -1,25 +1,26 @@
-/*
+/**
+ *
  * Renders Single Todo Item
  */
 
-var React     = require('react');
+ // Utility
+ var moment = require('moment');
 
-var {connect} = require('react-redux');
-var actions   = require('actions');
-
-// Utility
-var moment = require('moment');
+import React              from 'react';
+import {connect}          from 'react-redux';
+import {startToggleTodo}  from 'actions';
 
 
 export var TodoItem = React.createClass({
 
+  // Call startToggleTodo Action to mark it as completed
   handleChecked : function(e){
     var {id, completed} = this.props;
     var dispatch = this.props.dispatch;
-    //this.props.onToggle(id);
-    dispatch(actions.startToggleTodo(id, !completed));
+    dispatch(startToggleTodo(id, !completed));
   },
 
+  // Rendering component
   render : function () {
     var {id,text,completed, createdAt, completedAt, dispatch} = this.props;
 

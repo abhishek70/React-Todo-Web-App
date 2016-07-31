@@ -1,3 +1,8 @@
+/**
+ *
+ * App Test Case
+ */
+
 var expect = require('expect');
 
 describe('App', () => {

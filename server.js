@@ -1,8 +1,13 @@
-// Initializing the require modules
-var express = require('express');
-var app = express();
+/**
+ *
+ * Setting up web server
+ */
 
-// Create Port
+// Initializing the require module
+var express = require('express');
+var app     = express();
+
+// Create Port based on the environment
 const PORT = process.env.PORT || 4000;
 
 //Create Middleware for OpenWeather API (Https/Http)

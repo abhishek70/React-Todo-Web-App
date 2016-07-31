@@ -1,3 +1,8 @@
+/**
+ *
+ * Firebase Configuration Vars
+ */
+ 
 import firebase from 'firebase';
 
 try {

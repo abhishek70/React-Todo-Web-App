@@ -1,6 +1,8 @@
-/*
+/**
+ *
  * Redux Action Generators
  */
+
 import moment from 'moment';
 import firebase, {firebaseRef,githubProvider} from 'app/firebase/';
 
@@ -121,6 +123,8 @@ export var startAddTodos = () => {
   }
 };
 
+// Action for Login with Github
+// ------------------------------
 export var startLogin = () => {
   return (dispatch, getState) => {
     return firebase.auth().signInWithPopup(githubProvider).then((result) => {
@@ -131,6 +135,9 @@ export var startLogin = () => {
   };
 };
 
+
+// Action for user logging out
+// ------------------------------
 export var startLogout = () => {
   return (dispatch, getState) => {
     return firebase.auth().signOut().then(() => {
@@ -140,6 +147,8 @@ export var startLogout = () => {
 };
 
 
+// Initiate login and return user id
+// -----------------------------------
 export var login = (uid) => {
   return {
     type : 'LOGIN',
@@ -148,6 +157,8 @@ export var login = (uid) => {
 };
 
 
+// Initiate logout and clean up the todos from store
+// -------------------------------------------------
 export var logout = () => {
   return {
     type : 'LOGOUT'

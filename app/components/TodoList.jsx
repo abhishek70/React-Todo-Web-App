@@ -1,18 +1,21 @@
-/*
+/**
+ *
  * TodoList Component for holding Todo Items
  */
 
-var React     = require('react');
-var {connect} = require('react-redux');
+ // API for setting and getting TodoList
+ var TodoAPI   = require('TodoAPI');
 
-// API for setting and getting TodoList
-var TodoAPI   = require('TodoAPI');
+import React       from 'react';
+import {connect}   from 'react-redux';
 
 // Importing TodoItem Module
 import TodoItem from 'TodoItem';
 
+
 export var TodoList = React.createClass({
 
+  // Rending component
   render : function () {
     var {todos, searchText, showCompleted} = this.props;
     var renderTodoItems = () => {

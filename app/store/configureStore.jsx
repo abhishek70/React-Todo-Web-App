@@ -1,4 +1,5 @@
-/*
+/**
+ *
  * App Store Configuration combining reducers
  */
 

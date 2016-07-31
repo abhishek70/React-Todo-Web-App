@@ -1,13 +1,14 @@
-/*
+/**
+ *
  * Test cases for the Todo List
  */
 
-var React     = require('react');
-var ReactDOM  = require('react-dom');
-var expect    = require('expect');
-var TestUtils = require('react-addons-test-utils');
-var $         = require('jquery');
-var {Provider}= require('react-redux');
+var React         = require('react');
+var ReactDOM      = require('react-dom');
+var expect        = require('expect');
+var TestUtils     = require('react-addons-test-utils');
+var $             = require('jquery');
+var {Provider}    = require('react-redux');
 import {configure} from 'configureStore'
 import ConnectedTodoList, {TodoList} from 'TodoList'
 import ConnectedTodoItem, {TodoItem} from 'TodoItem'

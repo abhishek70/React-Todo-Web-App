@@ -1,14 +1,15 @@
-/*
+/**
+ *
  * Todo Filter Component
  */
 
-var React     = require('react');
-var {connect} = require('react-redux');
-var actions   = require('actions');
+import React                                from 'react';
+import {connect}                            from 'react-redux';
+import {setSearchText,toggleShowCompleted}  from 'actions';
 
 export var TodoSearch = React.createClass({
 
-  // Rendering
+  // Rendering component
   render: function() {
 
     var {dispatch, showCompletedTodos, todoSearchText} = this.props;
@@ -20,7 +21,7 @@ export var TodoSearch = React.createClass({
                     className="form-control"
                     onChange={()=>{
                       var searchText = this.refs.todoSearchText.value;
-                      dispatch(actions.setSearchText(searchText));
+                      dispatch(setSearchText(searchText));
                     }}
                     ref="todoSearchText"
                     value={todoSearchText}
@@ -32,7 +33,7 @@ export var TodoSearch = React.createClass({
                       ref="showCompletedTodos"
                       checked={showCompletedTodos}
                       onChange={() => {
-                        dispatch(actions.toggleShowCompleted());
+                        dispatch(toggleShowCompleted());
                       }} />
                     <span className="search-chk-label"> Show completed todos</span>
             </label>

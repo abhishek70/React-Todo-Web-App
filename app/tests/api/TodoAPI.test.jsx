@@ -1,4 +1,5 @@
-/*
+/**
+ *
  * TodoAPI Test Class
  */
  var expect    = require('expect');
@@ -13,5 +14,5 @@
    it('should exist', () => {
      expect(TodoAPI).toExist();
    });
-   
+
  });

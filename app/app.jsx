@@ -1,22 +1,27 @@
-// React and ReactDOM
-var React       = require('react');
-var ReactDOM    = require('react-dom');
+/**
+ *
+ * App entry point file
+ */
 
-// Redux Store
-var actions     = require('actions');
+// React and ReactDOM dependencies
+import React    from 'react';
+import ReactDOM from 'react-dom';
+
+// Redux Store dependencies
+import * as actions from 'actions';
 var store       = require('configureStore').configure();
-var {Provider}  = require('react-redux');
+import {Provider} from 'react-redux';
 
+// Router dependencies
+import {hashHistory} from 'react-router';
 
-// Object Destructering
-var {hashHistory} = require('react-router');
-
-import firebase from 'app/firebase/';
-import router from 'app/router/'
+// Firebase dependencies
+import firebase      from 'app/firebase/';
+import router        from 'app/router/'
 
 firebase.auth().onAuthStateChanged( (user) => {
 
-  console.log('User', user);
+  //console.log('User', user);
   if(user) {
 
     store.dispatch(actions.login(user.uid));

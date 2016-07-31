@@ -1,18 +1,21 @@
-/*
+/**
+ *
  * Nav Component
  */
+
 var styles            = require('../styles/index');
 var {Link, IndexLink} = require('react-router');
-import React from 'react';
-import * as Redux from 'react-redux';
-import * as actions from 'actions';
+
+import React         from 'react';
+import {connect}     from 'react-redux';
+import {startLogout} from 'actions';
 
 // Using Arrow Function Notation (Stateless Components)
 export var Nav = React.createClass({
   onLogout : function(e) {
     e.preventDefault();
     var {dispatch} = this.props;
-    dispatch(actions.startLogout());
+    dispatch(startLogout());
   },
   render:function(){
     return(
@@ -30,4 +33,4 @@ export var Nav = React.createClass({
   }
 })
 
-export default Redux.connect()(Nav);
+export default connect()(Nav);

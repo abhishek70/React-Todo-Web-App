@@ -1,13 +1,24 @@
-import React from 'react';
-import * as Redux from 'react-redux';
-import * as actions from 'actions';
+/**
+ *
+ * Login component
+ */
+
 var Container = require('Container');
 
+import React        from 'react';
+import {connect}    from 'react-redux';
+import {startLogin} from 'actions';
+
+
 export var Login = React.createClass({
+
+  // Call startLogin action
   onLogin : function() {
     var {dispatch} = this.props;
-    dispatch(actions.startLogin());
+    dispatch(startLogin());
   },
+
+  // Rendering component
   render: function() {
     return (
       <div className="col-md-6 col-md-offset-3 text-center">
@@ -23,4 +34,4 @@ export var Login = React.createClass({
   }
 })
 
-export default Redux.connect()(Login);
+export default connect()(Login);

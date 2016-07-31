@@ -1,19 +1,22 @@
-/*
- * Main Todo App Component holds Todo Search, Todo List,Todo Filter
+/**
+ *
+ * Main Todo App Component holds Todo Search, Todo List, Todo Filter
  */
 
-import React from 'react';
-import * as Redux from 'react-redux';
-import * as actions from 'actions';
-// Container
+
 var Container   = require('Container');
 
+import React        from 'react';
+import {connect}    from 'react-redux';
+
 // Importing required components
-import TodoList from 'TodoList';
-import AddTodo  from 'AddTodo';
-import TodoSearch from 'TodoSearch';
+import TodoList     from 'TodoList';
+import AddTodo      from 'AddTodo';
+import TodoSearch   from 'TodoSearch';
 
 export var Todo = React.createClass({
+
+  // Rending component
   render: function() {
     return(
       <Container>
@@ -28,4 +31,4 @@ export var Todo = React.createClass({
   }
 });
 
-export default Redux.connect()(Todo);
+export default connect()(Todo);

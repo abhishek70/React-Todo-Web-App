@@ -1,3 +1,8 @@
+/**
+ *
+ * Test cases for Reducers
+ */
+
 var expect   = require('expect');
 
 // Module for not allowing the func to change any data

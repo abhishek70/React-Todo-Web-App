@@ -1,4 +1,5 @@
-/*
+/**
+ *
  * Test cases for the TodoSearch
  */
 var expect      = require('expect');

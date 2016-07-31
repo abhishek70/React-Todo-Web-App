@@ -1,10 +1,11 @@
-/*
+/**
+ *
  * Create Add Todo Form
  */
 
-var React     = require('react');
-var {connect} = require('react-redux');
-var actions   = require('actions');
+import React          from 'react';
+import {connect}      from 'react-redux';
+import {startAddTodo} from 'actions';
 
 export var AddTodo = React.createClass({
 
@@ -19,24 +20,35 @@ export var AddTodo = React.createClass({
   // On Form Submit
   onSubmit: function (e) {
     e.preventDefault();
+
     var {dispatch}    = this.props;
+
+    // setting field ele
     var todoTextField = this.refs.todoText;
+
+    // Fetching ele value
     var todoText      = todoTextField.value;
+
     if(todoText.length > 0 ) {
-      //this.props.onAddTodo(todoText);
+
       // Action dispatch for adding Todo to Firebase
-      dispatch(actions.startAddTodo(todoText));
+      dispatch(startAddTodo(todoText));
+
       this.setState({
         errorState: null,
         todoText:''
       });
+
     } else {
+
       todoTextField.focus();
       this.setState({errorState: 'has-error'});
       return false;
+
     }
   },
 
+  // On inpput change
   handleChange : function(e) {
     const length = e.target.value.length;
 
@@ -49,6 +61,7 @@ export var AddTodo = React.createClass({
     this.setState({ todoText: e.target.value });
   },
 
+  // Rendering the component
   render: function() {
     return (
       <div className="col-md-6 col-md-offset-3 section-sep padding-bottom">
