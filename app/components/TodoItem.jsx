@@ -8,7 +8,7 @@
 
 import React              from 'react';
 import {connect}          from 'react-redux';
-import {startToggleTodo}  from 'actions';
+import {startToggleTodo, startRemoveTodo}  from 'actions';
 
 
 export var TodoItem = React.createClass({
@@ -43,13 +43,30 @@ export var TodoItem = React.createClass({
 
     return (
       <div className="checkbox todo-item-block">
-        <label>
-          <input  type="checkbox"
-                  onChange={this.handleChecked}
-                  checked={completed} />{formattedTodoText()}
-        </label>
+        <div className="col-md-12">
+          <div className="col-md-11">
+            <label>
+              <input  type="checkbox"
+                      onChange={this.handleChecked}
+                      checked={completed} />{formattedTodoText()}
+            </label>
+          </div>
+          <div className="col-md-1">
+            <span className="glyphicon glyphicon-remove"
+              aria-hidden="true"
+              onClick={() => {
+                dispatch(startRemoveTodo(id));
+              }}>
+
+            </span>
+          </div>
+        </div>
         <br/>
-        <div className="display-date">{displayDate()}</div>
+          <div className="col-md-12">
+            <div className="col-md-10">
+              <div className="display-date">{displayDate()}</div>
+            </div>
+          </div>
       </div>
     )
   }

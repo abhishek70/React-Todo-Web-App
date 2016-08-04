@@ -33,6 +33,29 @@ export var updateTodo = (id, updates) => {
   };
 };
 
+// Delete Todo
+// -------------
+export var removeTodo = (id) => {
+  return {
+    type: 'REMOVE_TODO',
+    id
+  };
+};
+
+// Delete Todo Using Firebase
+// ---------------------------
+export var startRemoveTodo = (id) => {
+  return (dispatch, getState) => {
+    var uid = getState().auth.uid;
+    var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`);
+
+    return todoRef.remove().then(()=>{
+      dispatch(removeTodo(id));
+    });
+  };
+};
+
+
 // Toggle Todo using Firebase
 // --------------------------
 export var startToggleTodo = (id, completed) => {
