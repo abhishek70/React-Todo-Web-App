@@ -17,7 +17,7 @@ describe('Reducers', () => {
         type : 'SET_SEARCH_TEXT',
         searchText : 'test'
       };
-      var res = reducers.searchTextReducers(df(''),df(action));
+      var res = reducers.searchTextReducers('',action);
 
       expect(res).toEqual(action.searchText);
     });
@@ -28,7 +28,7 @@ describe('Reducers', () => {
       var action = {
         type : 'TOGGLE_SHOW_COMPLETED',
       };
-      var res = reducers.showCompletedReducers(df(false),df(action));
+      var res = reducers.showCompletedReducers(false,action);
 
       expect(res).toEqual(true);
     });
